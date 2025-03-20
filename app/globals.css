@@ -1,19 +1,27 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-:root {
+html[data-theme="light"] {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  min-height: 100vh;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: color 0.5s ease-in-out;
+}
+
+.box {
+  @apply border-2 border-black
 }
