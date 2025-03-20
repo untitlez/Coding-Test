@@ -1,4 +1,4 @@
-export default function NameInput({ value, onChange,disabled }) {
+export default function NameInput({ value, onChange, disabled }) {
   return (
     <>
       <input

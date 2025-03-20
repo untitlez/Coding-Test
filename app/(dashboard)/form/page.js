@@ -23,7 +23,7 @@ export default function FormPage() {
     setForm(initForm);
     console.log(form);
     setTimeout(() => {
-      toast.success('Add New User Success!')
+      toast.success("Add New User Success!");
       router.push("/users");
     }, 3000);
   };
@@ -57,7 +57,7 @@ export default function FormPage() {
           disabled={disabled}
         />
 
-        <button type="submit" className="btn btn-accent mt-4" >
+        <button type="submit" className="btn btn-accent mt-4">
           {loading ? <p>Plase wait...</p> : <p> Add New User</p>}
         </button>
       </form>

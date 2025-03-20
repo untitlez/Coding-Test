@@ -27,7 +27,6 @@ export default function UsersPage() {
               <th>Email</th>
               <th>
                 <Link href="/form">
-                  {" "}
                   <button className="btn btn-accent">Add</button>
                 </Link>
               </th>
