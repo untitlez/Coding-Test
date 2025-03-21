@@ -2,6 +2,7 @@
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import DeleteUser from "./DeleteUser";
 
 export default function UsersPage() {
   const [users, setUsers] = useState([]);
@@ -15,6 +16,7 @@ export default function UsersPage() {
     }
     fetchData();
   }, []);
+
 
   return (
     <>
@@ -38,6 +40,15 @@ export default function UsersPage() {
                 <th>{i + 1}</th>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
+                <td className="flex gap-4">
+                  <Link
+                    href={`/users/${user.id}`}
+                    className="btn btn-accent btn-outline"
+                  >
+                    <p>View</p>
+                  </Link>
+                  <DeleteUser users={users}/>
+                </td>
               </tr>
             ))}
           </tbody>

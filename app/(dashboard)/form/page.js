@@ -5,6 +5,7 @@ import NameInput from "./input/NameInput";
 import RoleSelect from "./input/RoleSelect";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 export default function FormPage() {
   const router = useRouter();
@@ -16,16 +17,22 @@ export default function FormPage() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setDisabled(true);
     setLoading(true);
-    setForm(initForm);
-    console.log(form);
-    setTimeout(() => {
+
+    try {
+      const { data } = await axios.post(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      console.log("Add New User:", data);
       toast.success("Add New User Success!");
       router.push("/users");
-    }, 3000);
+    } catch (error) {
+      console.error("Error Add New User:", error);
+    }
+    setForm(initForm);
   };
 
   return (
